@@ -5,7 +5,6 @@ import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Hobby;
 import net.bondar.webapp.api.model.Place;
 
-import java.util.Collection;
 import java.util.Set;
 
 /**

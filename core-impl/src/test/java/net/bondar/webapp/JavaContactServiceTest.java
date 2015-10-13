@@ -6,7 +6,6 @@ import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Hobby;
 import net.bondar.webapp.api.model.Place;
 import net.bondar.webapp.core.JavaContactServiceImpl;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

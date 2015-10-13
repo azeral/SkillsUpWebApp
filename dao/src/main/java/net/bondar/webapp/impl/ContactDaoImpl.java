@@ -1,7 +1,6 @@
 package net.bondar.webapp.impl;
 
 import net.bondar.webapp.ContactDao;
-import net.bondar.webapp.api.exception.NoSuchContactException;
 import net.bondar.webapp.api.model.Chat;
 import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Hobby;

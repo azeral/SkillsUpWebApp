@@ -1,6 +1,5 @@
 package net.bondar.webapp.impl;
 
-import net.bondar.webapp.ContactDao;
 import net.bondar.webapp.PlaceDao;
 import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Place;

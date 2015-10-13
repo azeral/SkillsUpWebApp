@@ -9,7 +9,7 @@ import java.util.List;
  * Created by AzeraL on 07.10.2015.
  */
 public interface MessageDao {
-    void storeMessage(Message message);
-    List<Message> getConversation(Contact firstContact, Contact secondContact);
+//    void storeMessage(Message message);
+//    List<Message> getConversation(Contact firstContact, Contact secondContact);
 
 }
