@@ -9,5 +9,5 @@ import java.util.Set;
  * Created by AzeraL on 07.10.2015.
  */
 public interface PlaceDao extends AbstractDao<Place> {
-    Set<Contact> getAllContactsForPlace(Place place);
+    void addPlaceToContact(Contact contact, Place place);
 }

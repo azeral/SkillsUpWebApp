@@ -1,38 +1,42 @@
 package net.bondar.webapp.impl;
 
+import net.bondar.webapp.ContactDao;
 import net.bondar.webapp.HobbyDao;
 import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Hobby;
+import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by AzeraL on 07.10.2015.
  */
+@Repository
 public class HobbyDaoImpl implements HobbyDao {
     Map<Long, Hobby> hobbyMap=new HashMap<>();
 
 
     @Override
-    public void add(Hobby hobby) {
+    public void create(Hobby hobby) {
         hobbyMap.put(hobby.getHobby_id(), hobby);
     }
 
+
     @Override
-    public Set<Contact> getAllContactsWithHobby(Hobby hobby) {
-        Map<Long, Contact> contactMap=new ContactDaoImpl().contactMap;
-        Set<Contact> contactSet = new HashSet<>();
-        for(Map.Entry<Long, Contact> mapEntry:contactMap.entrySet()){
-            Contact contact=mapEntry.getValue();
-            for(Hobby contactHobby:contact.getHobbies()){
-                if(contactHobby.equals(hobby)){
-                    contactSet.add(contact);
-                }
-            }
+    public void addHobbyToContact(Contact contact, Hobby hobby) {
+        Set<Hobby> hobbies = contact.getHobbies();
+        if(hobbies.size()==0){
+            Set<Hobby> newHobbySet = new HashSet<>();
+            newHobbySet.add(hobby);
+            contact.setHobbies(newHobbySet);
+        }else {
+            hobbies.add(hobby);
+            contact.setHobbies(hobbies);
         }
-        return contactSet;
+    }
+
+    @Override
+    public Collection<Hobby> getAll() {
+        return hobbyMap.values();
     }
 }

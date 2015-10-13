@@ -4,9 +4,17 @@ package net.bondar.webapp.api.model;
  * Created by AzeraL on 16.09.2015.
  */
 public class Hobby {
+    private static long ID=1;
     private long hobby_id;
     private String title;
     private String description;
+
+    public Hobby(){}
+    public Hobby(String title, String description) {
+        this.hobby_id=ID++;
+        this.title = title;
+        this.description = description;
+    }
 
     public long getHobby_id() {
         return hobby_id;

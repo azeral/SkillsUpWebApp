@@ -6,10 +6,19 @@ import java.time.LocalDateTime;
  * Created by AzeraL on 16.09.2015.
  */
 public class Post {
+    private static long ID=1;
     private long post_id;
     private long contact_id;
     private String content;
     private LocalDateTime date;
+
+    public Post(){}
+    public Post(long contact_id, String content, LocalDateTime date) {
+        this.post_id=ID++;
+        this.contact_id = contact_id;
+        this.content = content;
+        this.date = date;
+    }
 
     public long getPost_id() {
         return post_id;

@@ -4,11 +4,21 @@ package net.bondar.webapp.api.model;
  * Created by AzeraL on 16.09.2015.
  */
 public class Place {
+    private static long ID=1;
     private long place_id;
     private String title;
     private String description;
     private double latitude;
     private double longitude;
+
+    public Place(){}
+    public Place(String title, String description, double latitude, double longitude) {
+        this.place_id=ID++;
+        this.title = title;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public long getPlace_id() {
         return place_id;

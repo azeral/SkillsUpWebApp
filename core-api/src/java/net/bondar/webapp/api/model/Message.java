@@ -6,11 +6,20 @@ import java.time.LocalDateTime;
  * Created by AzeraL on 16.09.2015.
  */
 public class Message {
+    private static long ID=1;
     private long message_id;
     private LocalDateTime date;
-    private  String content;
+    private String content;
     private Contact from;
     private Contact to;
+
+    public Message(LocalDateTime date, String content, Contact from, Contact to) {
+        this.message_id=ID++;
+        this.date = date;
+        this.content = content;
+        this.from = from;
+        this.to = to;
+    }
 
     public long getMessage_id() {
         return message_id;

@@ -1,23 +1,35 @@
 package net.bondar.webapp.api.model;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by AzeraL on 16.09.2015.
  */
 public class Contact {
+    private static long ID=1;
     private long contact_id;
-    private  String firstName;
-    private  String lastName;
+    private String firstName;
+    private String lastName;
     private LocalDate birthDate;
     private Set<Hobby> hobbies;
     private Set<Place> places;
-    private List<Contact> friendship;
-    private Map<Contact, List<Message>> conversation;
+    private Set<Contact> friendList;
+    private Set<Chat> conversation;
     private Map<Contact, List<Post>> post;
+
+    public Contact(){}
+    public Contact(String firstName, String lastName, LocalDate birthDate) {
+        this.contact_id = ID++;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.hobbies=new HashSet<>();
+        this.places=new HashSet<>();
+        this.friendList=new HashSet<>();
+        this.conversation=new HashSet<>();
+        this.post=new HashMap<>();
+    }
 
     public long getContact_id() {
         return contact_id;
@@ -67,19 +79,19 @@ public class Contact {
         this.places = places;
     }
 
-    public List<Contact> getFriendship() {
-        return friendship;
+    public Set<Contact> getFriendList() {
+        return friendList;
     }
 
-    public void setFriendship(List<Contact> friendship) {
-        this.friendship = friendship;
+    public void setFriendList(Set<Contact> friendList) {
+        this.friendList = friendList;
     }
 
-    public Map<Contact, List<Message>> getConversation() {
+    public Set<Chat> getConversation() {
         return conversation;
     }
 
-    public void setConversation(Map<Contact, List<Message>> conversation) {
+    public void setConversation(Set<Chat> conversation) {
         this.conversation = conversation;
     }
 
@@ -103,7 +115,11 @@ public class Contact {
         if (lastName != null ? !lastName.equals(contact.lastName) : contact.lastName != null) return false;
         if (birthDate != null ? !birthDate.equals(contact.birthDate) : contact.birthDate != null) return false;
         if (hobbies != null ? !hobbies.equals(contact.hobbies) : contact.hobbies != null) return false;
-        return !(places != null ? !places.equals(contact.places) : contact.places != null);
+        if (places != null ? !places.equals(contact.places) : contact.places != null) return false;
+        if (friendList != null ? !friendList.equals(contact.friendList) : contact.friendList != null) return false;
+        if (conversation != null ? !conversation.equals(contact.conversation) : contact.conversation != null)
+            return false;
+        return !(post != null ? !post.equals(contact.post) : contact.post != null);
 
     }
 
@@ -113,8 +129,6 @@ public class Contact {
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
-        result = 31 * result + (hobbies != null ? hobbies.hashCode() : 0);
-        result = 31 * result + (places != null ? places.hashCode() : 0);
         return result;
     }
 
@@ -125,8 +139,6 @@ public class Contact {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
-                ", hobbies=" + hobbies +
-                ", places=" + places +
                 '}';
     }
 }

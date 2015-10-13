@@ -3,20 +3,19 @@ package net.bondar.webapp.impl;
 import net.bondar.webapp.PostDao;
 import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Post;
+import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by AzeraL on 07.10.2015.
  */
+@Repository
 public class PostDaoImpl implements PostDao {
     Map<Long, Post> postMap=new HashMap<>();
 
     @Override
-    public void add(Post post) {
+    public void create(Post post) {
         postMap.put(post.getPost_id(), post);
     }
 
@@ -29,5 +28,10 @@ public class PostDaoImpl implements PostDao {
             }
         }
         return postList;
+    }
+
+    @Override
+    public Collection<Post> getAll() {
+        return postMap.values();
     }
 }
