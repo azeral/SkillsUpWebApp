@@ -9,7 +9,7 @@ import net.bondar.webapp.api.model.Hobby;
 import net.bondar.webapp.api.model.Place;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
+
 
 import java.time.LocalDate;
 import java.util.*;
@@ -19,7 +19,6 @@ import java.util.*;
  * Created by AzeraL on 16.09.2015.
  */
 @Service
-@ContextConfiguration("classpath:applicationcontext.xml")
 public class JavaContactServiceImpl implements JavaContactService {
     @Autowired
     private ContactDao contactDao;

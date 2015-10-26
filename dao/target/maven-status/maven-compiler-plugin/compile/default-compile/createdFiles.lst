@@ -1,0 +1,13 @@
+net\bondar\webapp\ContactDao.class
+net\bondar\webapp\MessageDao.class
+net\bondar\webapp\impl\ChatDaoImpl.class
+net\bondar\webapp\ChatDao.class
+net\bondar\webapp\impl\PostDaoImpl.class
+net\bondar\webapp\impl\HobbyDaoImpl.class
+net\bondar\webapp\impl\PlaceDaoImpl.class
+net\bondar\webapp\HobbyDao.class
+net\bondar\webapp\impl\ContactDaoImpl.class
+net\bondar\webapp\impl\MessageDaoImpl.class
+net\bondar\webapp\PlaceDao.class
+net\bondar\webapp\AbstractDao.class
+net\bondar\webapp\PostDao.class
