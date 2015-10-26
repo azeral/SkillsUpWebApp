@@ -1,6 +1,5 @@
 package net.bondar.webapp.api;
 
-import net.bondar.webapp.api.exception.NullContactFirstNameException;
 import net.bondar.webapp.api.model.Chat;
 import net.bondar.webapp.api.model.Contact;
 import net.bondar.webapp.api.model.Hobby;
@@ -14,7 +13,7 @@ import java.util.Set;
  * Created by AzeraL on 16.09.2015.
  */
 public interface JavaContactService {
-    void createContact(String firstName, String lastName, LocalDate birthDate) throws NullContactFirstNameException;
+    void createContact(String firstName, String lastName, LocalDate birthDate);
     Contact getContactByName(String firstName, String lastName);
     void createHobby(String title, String description);
     void addHobbyToContact(Contact contact, Hobby hobby);

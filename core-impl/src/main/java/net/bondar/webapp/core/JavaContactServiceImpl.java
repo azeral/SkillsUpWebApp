@@ -34,10 +34,10 @@ public class JavaContactServiceImpl implements JavaContactService {
 
     @Override
     public void createContact(String firstName, String lastName, LocalDate birthDate){
-        if(firstName==null)throw new NullContactFirstNameException();
-        else if(lastName==null) throw new NullContactLastNameException();
-        else if(!firstName.matches("^\\D*$")) throw new IncorrectContactFirstNameException();
-        else if(!lastName.matches("^\\D*$")) throw new IncorrectContactLastNameException();
+        if(firstName==null)throw new IllegalArgumentException("Contact firstName is null");
+        else if(lastName==null) throw new IllegalArgumentException("Contact lastName is null");
+        else if(!firstName.matches("^\\D*$")) throw new IllegalArgumentException("Contact firstName contains digits");
+        else if(!lastName.matches("^\\D*$")) throw new IllegalArgumentException("Contact lastName contains digits");
         Contact contact = new Contact(firstName, lastName, birthDate);
         contactDao.create(contact);
     }
@@ -64,8 +64,8 @@ public class JavaContactServiceImpl implements JavaContactService {
 
     @Override
     public void createHobby(String title, String description) {
-        if(title==null) throw new NullHobbyTitleException();
-        else if(description==null) throw new NullHobbyDescriptionException();
+        if(title==null) throw new IllegalArgumentException("Hobby title is null");
+        else if(description==null) throw new IllegalArgumentException("Hobby description is null");
         Hobby hobby=new Hobby(title, description);
         hobbyDao.create(hobby);
     }
@@ -78,10 +78,10 @@ public class JavaContactServiceImpl implements JavaContactService {
 
     @Override
     public void createPlace(String title, String description, double latitude, double longitude) {
-        if(title==null) throw new NullPlaceTitleException();
-        else if(description==null) throw new NullPlaceDescriptionException();
-        else if(latitude<-90||latitude>90) throw new IncorrectPlaceLatitudeException();
-        else if(longitude<-180||longitude>180) throw new IncorrectPlaceLongitudeException();
+        if(title==null) throw new IllegalArgumentException("Place title is null");
+        else if(description==null) throw new IllegalArgumentException("Place description is null");
+        else if(latitude<-90||latitude>90) throw new IllegalArgumentException("Place latitude <-90 or >90");
+        else if(longitude<-180||longitude>180) throw new IllegalArgumentException("Place longitude <-180 or >180");
         Place place = new Place(title, description, latitude, longitude);
         placeDao.create(place);
     }

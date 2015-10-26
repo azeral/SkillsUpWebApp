@@ -32,16 +32,16 @@ public class App {
         System.out.println(service.getAllContacts());
         System.out.println();
         //Add places and hobbies to contacts
-        Contact alex = service.getContactByName("Vsevolod", "Bondar");
+        Contact alex = service.getContactByName("Alex", "Second");
         service.addHobbyToContact(alex, sport);
         service.addPlaceToContact(alex, home);
         service.addPlaceToContact(alex, work);
 
-        Contact ivan = service.getContactByName("Ivan", "Ivanov");
+        Contact ivan = service.getContactByName("Ivan", "First");
         service.addHobbyToContact(ivan, gamer);
         service.addPlaceToContact(ivan, work);
 
-        Contact max = service.getContactByName("Max", "Mad");
+        Contact max = service.getContactByName("Max", "Third");
         service.addHobbyToContact(max, sport);
         service.addPlaceToContact(max, home);
         //Show hobbies and places

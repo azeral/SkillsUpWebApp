@@ -53,33 +53,30 @@ public class JavaContactServiceTest {
         doReturn(max).when(contactDao).getContactByName(contact2FirstName, contact2LastName);
     }
 
-    @Test(expected = NullContactFirstNameException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreateContact_NullFirstName(){
-        Contact contactWithNullFirstName = contactDao.getContactByName(contact1FirstName, contact1LastName);
-        contactWithNullFirstName.setFirstName(null);
+        Contact contactWithNullFirstName = new Contact(null, contact1LastName, LocalDate.of(1990, Month.SEPTEMBER, 12));
         service.createContact(contactWithNullFirstName.getFirstName(), contactWithNullFirstName.getLastName(), contactWithNullFirstName.getBirthDate());
         assertNotNull(contactWithNullFirstName.getFirstName() == null);
     }
 
-    @Test(expected = IncorrectContactFirstNameException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreateContact_IncorrectFirstName(){
-        Contact contactWithFirstNameContainsDigit = contactDao.getContactByName(contact1FirstName, contact1LastName);
-        contactWithFirstNameContainsDigit.setFirstName("qwerty12");
+        Contact contactWithFirstNameContainsDigit = new Contact("qwerty12", contact1LastName, LocalDate.of(1990, Month.SEPTEMBER, 12));
         service.createContact(contactWithFirstNameContainsDigit.getFirstName(), contactWithFirstNameContainsDigit.getLastName(), contactWithFirstNameContainsDigit.getBirthDate());
         assertFalse(!contactWithFirstNameContainsDigit.getFirstName().matches("^\\D*$"));
     }
 
-    @Test(expected = NullContactLastNameException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreateContact_NullLastName(){
-        Contact contactWithNullLastName = contactDao.getContactByName(contact1FirstName, contact1LastName);
-        contactWithNullLastName.setLastName(null);
+        Contact contactWithNullLastName = new Contact(contact1FirstName, null, LocalDate.of(1990, Month.SEPTEMBER, 12));
         service.createContact(contactWithNullLastName.getFirstName(), contactWithNullLastName.getLastName(), contactWithNullLastName.getBirthDate());
         assertNotNull(contactWithNullLastName.getLastName() == null);
     }
-    @Test(expected = IncorrectContactLastNameException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void testCreateContact_IncorrectLastName(){
-        Contact contactWithLastNameContainsDigit = contactDao.getContactByName(contact1FirstName, contact1LastName);
-        contactWithLastNameContainsDigit.setLastName("qwerty12");
+        Contact contactWithLastNameContainsDigit = new Contact(contact1FirstName, "qwerty12", LocalDate.of(1990, Month.SEPTEMBER, 12));
         service.createContact(contactWithLastNameContainsDigit.getFirstName(), contactWithLastNameContainsDigit.getLastName(), contactWithLastNameContainsDigit.getBirthDate());
         assertFalse(!contactWithLastNameContainsDigit.getLastName().matches("^\\D*$"));
     }
@@ -102,7 +99,6 @@ public class JavaContactServiceTest {
         contacts.add(contact);
         doReturn(contacts).when(contactDao).getAll();
         service.deleteContact(deletingContact);
-        assertTrue(contacts.contains(deletingContact));
     }
 
     @Test(expected = NoSuchContactException.class)
@@ -112,14 +108,14 @@ public class JavaContactServiceTest {
         assertNotNull(service.getContactByName(gettingContact.getFirstName(), gettingContact.getLastName()));
     }
 
-    @Test(expected = NullHobbyTitleException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreateHobby_NullTitle(){
         Hobby hobbyWithNullTitle = new Hobby(null, "sport");
         service.createHobby(hobbyWithNullTitle.getTitle(), hobbyWithNullTitle.getDescription());
         assertNotNull(hobbyWithNullTitle.getTitle() == null);
     }
 
-    @Test(expected = NullHobbyDescriptionException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreateHobby_NullDescription(){
         Hobby hobbyWithNullDescription = new Hobby("Sport", null);
         service.createHobby(hobbyWithNullDescription.getTitle(), hobbyWithNullDescription.getDescription());
@@ -135,28 +131,28 @@ public class JavaContactServiceTest {
         assertFalse(contact.getHobbies().contains(hobby));
     }
 
-    @Test(expected = NullPlaceTitleException.class)
+    @Test(expected = IllegalArgumentException.class)
      public void testCreatePlace_NullTitle(){
         Place placeWithNullTitle = new Place(null, "My home", 21, 12);
         service.createPlace(placeWithNullTitle.getTitle(), placeWithNullTitle.getDescription(), placeWithNullTitle.getLatitude(), placeWithNullTitle.getLongitude());
         assertNotNull(placeWithNullTitle.getTitle() == null);
     }
 
-    @Test(expected = NullPlaceDescriptionException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreatePlace_NullDescription(){
         Place placeWithNullDescription = new Place("Home", null, 21, 12);
         service.createPlace(placeWithNullDescription.getTitle(), placeWithNullDescription.getDescription(), placeWithNullDescription.getLatitude(), placeWithNullDescription.getLongitude());
         assertNotNull(placeWithNullDescription.getDescription() == null);
     }
 
-    @Test(expected = IncorrectPlaceLatitudeException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreatePlace_IncorrectLatitude(){
         Place placeWithNegativeLatitude = new Place("Home", "My home", -120, 12);
         service.createPlace(placeWithNegativeLatitude.getTitle(), placeWithNegativeLatitude.getDescription(), placeWithNegativeLatitude.getLatitude(), placeWithNegativeLatitude.getLongitude());
         assertTrue(placeWithNegativeLatitude.getLatitude() >= -90 && placeWithNegativeLatitude.getLatitude() <= 90);
     }
 
-    @Test(expected = IncorrectPlaceLongitudeException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testCreatePlace_IncorrectLongitude(){
         Place placeWithNegativeLongitude = new Place("Home", "My home", 12, -190);
         service.createPlace(placeWithNegativeLongitude.getTitle(), placeWithNegativeLongitude.getDescription(), placeWithNegativeLongitude.getLatitude(), placeWithNegativeLongitude.getLongitude());
