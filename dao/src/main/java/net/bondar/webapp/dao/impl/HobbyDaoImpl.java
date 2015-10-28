@@ -1,6 +1,6 @@
-package net.bondar.webapp.impl;
+package net.bondar.webapp.dao.impl;
 
-import net.bondar.webapp.HobbyDao;
+import net.bondar.webapp.dao.HobbyDao;
 import net.bondar.webapp.api.model.ContactDto;
 import net.bondar.webapp.api.model.HobbyDto;
 import org.springframework.stereotype.Repository;

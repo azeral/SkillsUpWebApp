@@ -1,6 +1,6 @@
-package net.bondar.webapp.impl;
+package net.bondar.webapp.dao.impl;
 
-import net.bondar.webapp.PostDao;
+import net.bondar.webapp.dao.PostDao;
 import net.bondar.webapp.api.model.ContactDto;
 import net.bondar.webapp.api.model.PostDto;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package net.bondar.webapp;
+package net.bondar.webapp.dao;
 
 import net.bondar.webapp.api.model.ChatDto;
 

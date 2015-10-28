@@ -9,7 +9,7 @@ public class ChatDto {
     private long id;
     private ContactDto userFrom;
     private ContactDto userTo;
-    private List<MessageDto> chatMessageDtos;
+    private List<MessageDto> chatMessages;
 
     public long getId() {
         return id;
@@ -36,11 +36,11 @@ public class ChatDto {
     }
 
     public List<MessageDto> getChatMessageDtos() {
-        return chatMessageDtos;
+        return chatMessages;
     }
 
     public void setChatMessageDtos(List<MessageDto> chatMessageDtos) {
-        this.chatMessageDtos = chatMessageDtos;
+        this.chatMessages = chatMessageDtos;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ChatDto {
         if (id != chatDto.id) return false;
         if (userFrom != null ? !userFrom.equals(chatDto.userFrom) : chatDto.userFrom != null) return false;
         if (userTo != null ? !userTo.equals(chatDto.userTo) : chatDto.userTo != null) return false;
-        return !(chatMessageDtos != null ? !chatMessageDtos.equals(chatDto.chatMessageDtos) : chatDto.chatMessageDtos != null);
+        return !(chatMessages != null ? !chatMessages.equals(chatDto.chatMessages) : chatDto.chatMessages != null);
 
     }
 
@@ -62,7 +62,7 @@ public class ChatDto {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (userFrom != null ? userFrom.hashCode() : 0);
         result = 31 * result + (userTo != null ? userTo.hashCode() : 0);
-        result = 31 * result + (chatMessageDtos != null ? chatMessageDtos.hashCode() : 0);
+        result = 31 * result + (chatMessages != null ? chatMessages.hashCode() : 0);
         return result;
     }
 
@@ -72,7 +72,7 @@ public class ChatDto {
                 "id=" + id +
                 ", userFrom=" + userFrom +
                 ", userTo=" + userTo +
-                ", chatMessageDtos=" + chatMessageDtos +
+                ", chatMessages=" + chatMessages +
                 '}';
     }
 }

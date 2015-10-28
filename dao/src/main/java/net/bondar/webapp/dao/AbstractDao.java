@@ -1,4 +1,4 @@
-package net.bondar.webapp;
+package net.bondar.webapp.dao;
 
 import java.util.Collection;
 

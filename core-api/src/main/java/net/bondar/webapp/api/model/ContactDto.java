@@ -12,7 +12,7 @@ public class ContactDto {
     private String lastName;
     private LocalDate birthDate;
     private Set<HobbyDto> hobbies;
-    private Set<PlaceDto> placeDtos;
+    private Set<PlaceDto> places;
     private Set<ContactDto> friendList;
     private Set<ChatDto> conversation;
     private Map<ContactDto, List<PostDto>> post;
@@ -58,11 +58,11 @@ public class ContactDto {
     }
 
     public Set<PlaceDto> getPlaceDtos() {
-        return placeDtos;
+        return places;
     }
 
     public void setPlaceDtos(Set<PlaceDto> placeDtos) {
-        this.placeDtos = placeDtos;
+        this.places = placeDtos;
     }
 
     public Set<ContactDto> getFriendList() {
@@ -101,7 +101,7 @@ public class ContactDto {
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
         if (hobbies != null ? !hobbies.equals(that.hobbies) : that.hobbies != null) return false;
-        if (placeDtos != null ? !placeDtos.equals(that.placeDtos) : that.placeDtos != null) return false;
+        if (places != null ? !places.equals(that.places) : that.places != null) return false;
         if (friendList != null ? !friendList.equals(that.friendList) : that.friendList != null) return false;
         if (conversation != null ? !conversation.equals(that.conversation) : that.conversation != null) return false;
         return !(post != null ? !post.equals(that.post) : that.post != null);
@@ -115,7 +115,7 @@ public class ContactDto {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + (hobbies != null ? hobbies.hashCode() : 0);
-        result = 31 * result + (placeDtos != null ? placeDtos.hashCode() : 0);
+        result = 31 * result + (places != null ? places.hashCode() : 0);
         result = 31 * result + (friendList != null ? friendList.hashCode() : 0);
         result = 31 * result + (conversation != null ? conversation.hashCode() : 0);
         result = 31 * result + (post != null ? post.hashCode() : 0);
@@ -130,7 +130,7 @@ public class ContactDto {
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
                 ", hobbies=" + hobbies +
-                ", placeDtos=" + placeDtos +
+                ", places=" + places +
                 ", friendList=" + friendList +
                 ", conversation=" + conversation +
                 ", post=" + post +

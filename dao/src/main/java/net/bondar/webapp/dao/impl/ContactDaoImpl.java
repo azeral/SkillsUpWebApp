@@ -1,6 +1,6 @@
-package net.bondar.webapp.impl;
+package net.bondar.webapp.dao.impl;
 
-import net.bondar.webapp.ContactDao;
+import net.bondar.webapp.dao.ContactDao;
 import net.bondar.webapp.api.model.ChatDto;
 import net.bondar.webapp.api.model.ContactDto;
 import net.bondar.webapp.api.model.HobbyDto;

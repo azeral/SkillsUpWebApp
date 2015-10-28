@@ -1,6 +1,6 @@
-package net.bondar.webapp.impl;
+package net.bondar.webapp.dao.impl;
 
-import net.bondar.webapp.PlaceDao;
+import net.bondar.webapp.dao.PlaceDao;
 import net.bondar.webapp.api.model.ContactDto;
 import net.bondar.webapp.api.model.PlaceDto;
 import org.springframework.stereotype.Repository;

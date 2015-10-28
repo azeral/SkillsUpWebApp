@@ -1,6 +1,6 @@
-package net.bondar.webapp.impl;
+package net.bondar.webapp.dao.impl;
 
-import net.bondar.webapp.ChatDao;
+import net.bondar.webapp.dao.ChatDao;
 import net.bondar.webapp.api.model.ChatDto;
 import org.springframework.stereotype.Repository;
 

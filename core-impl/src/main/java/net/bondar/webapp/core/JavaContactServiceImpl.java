@@ -1,11 +1,11 @@
 package net.bondar.webapp.core;
 
-import net.bondar.webapp.*;
 import net.bondar.webapp.api.JavaContactService;
 import net.bondar.webapp.api.model.ChatDto;
 import net.bondar.webapp.api.model.ContactDto;
 import net.bondar.webapp.api.model.HobbyDto;
 import net.bondar.webapp.api.model.PlaceDto;
+import net.bondar.webapp.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
