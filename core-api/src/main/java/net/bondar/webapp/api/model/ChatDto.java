@@ -5,18 +5,16 @@ import java.util.List;
 /**
  * Created by AzeraL on 09.10.2015.
  */
-public class ChatDto {
-    private long id;
+public class ChatDto extends ModelDto{
     private ContactDto userFrom;
     private ContactDto userTo;
     private List<MessageDto> chatMessages;
 
-    public long getId() {
-        return id;
+    public ChatDto(){
+        super();
     }
-
-    public void setId(long chat_id) {
-        this.id = chat_id;
+    public ChatDto(long id){
+        super(id);
     }
 
     public ContactDto getUserFrom() {
@@ -35,12 +33,12 @@ public class ChatDto {
         this.userTo = userTo;
     }
 
-    public List<MessageDto> getChatMessageDtos() {
+    public List<MessageDto> getChatMessages() {
         return chatMessages;
     }
 
-    public void setChatMessageDtos(List<MessageDto> chatMessageDtos) {
-        this.chatMessages = chatMessageDtos;
+    public void setChatMessages(List<MessageDto> chatMessages) {
+        this.chatMessages = chatMessages;
     }
 
     @Override
@@ -50,7 +48,6 @@ public class ChatDto {
 
         ChatDto chatDto = (ChatDto) o;
 
-        if (id != chatDto.id) return false;
         if (userFrom != null ? !userFrom.equals(chatDto.userFrom) : chatDto.userFrom != null) return false;
         if (userTo != null ? !userTo.equals(chatDto.userTo) : chatDto.userTo != null) return false;
         return !(chatMessages != null ? !chatMessages.equals(chatDto.chatMessages) : chatDto.chatMessages != null);
@@ -59,8 +56,7 @@ public class ChatDto {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (userFrom != null ? userFrom.hashCode() : 0);
+        int result = userFrom != null ? userFrom.hashCode() : 0;
         result = 31 * result + (userTo != null ? userTo.hashCode() : 0);
         result = 31 * result + (chatMessages != null ? chatMessages.hashCode() : 0);
         return result;
@@ -69,8 +65,7 @@ public class ChatDto {
     @Override
     public String toString() {
         return "ChatDto{" +
-                "id=" + id +
-                ", userFrom=" + userFrom +
+                "userFrom=" + userFrom +
                 ", userTo=" + userTo +
                 ", chatMessages=" + chatMessages +
                 '}';

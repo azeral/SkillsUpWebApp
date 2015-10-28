@@ -5,19 +5,19 @@ import java.time.LocalDateTime;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class MessageDto {
-    private long id;
+public class MessageDto extends ModelDto{
+
     private LocalDateTime date;
     private String content;
     private ContactDto from;
     private ContactDto to;
 
-    public long getId() {
-        return id;
+    public MessageDto(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public MessageDto(long id){
+        super(id);
     }
 
     public LocalDateTime getDate() {
@@ -57,20 +57,18 @@ public class MessageDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MessageDto messageDto = (MessageDto) o;
+        MessageDto that = (MessageDto) o;
 
-        if (id != messageDto.id) return false;
-        if (date != null ? !date.equals(messageDto.date) : messageDto.date != null) return false;
-        if (content != null ? !content.equals(messageDto.content) : messageDto.content != null) return false;
-        if (from != null ? !from.equals(messageDto.from) : messageDto.from != null) return false;
-        return !(to != null ? !to.equals(messageDto.to) : messageDto.to != null);
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+        if (from != null ? !from.equals(that.from) : that.from != null) return false;
+        return !(to != null ? !to.equals(that.to) : that.to != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (date != null ? date.hashCode() : 0);
+        int result = date != null ? date.hashCode() : 0;
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (from != null ? from.hashCode() : 0);
         result = 31 * result + (to != null ? to.hashCode() : 0);
@@ -80,8 +78,7 @@ public class MessageDto {
     @Override
     public String toString() {
         return "MessageDto{" +
-                "id=" + id +
-                ", date=" + date +
+                "date=" + date +
                 ", content='" + content + '\'' +
                 ", from=" + from +
                 ", to=" + to +

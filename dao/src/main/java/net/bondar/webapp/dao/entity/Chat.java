@@ -1,6 +1,8 @@
 package net.bondar.webapp.dao.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -8,12 +10,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "CHAT")
-public class Chat {
+public class Chat extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private long id;
     @Column(name = "FROM")
     private Contact userFrom;
     @Column(name = "TO")
@@ -21,12 +19,12 @@ public class Chat {
 
     private List<Message> chatMessages;
 
-    public long getId() {
-        return id;
+    public Chat(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Chat(long id){
+        super(id);
     }
 
     public Contact getUserFrom() {
@@ -60,7 +58,6 @@ public class Chat {
 
         Chat chat = (Chat) o;
 
-        if (id != chat.id) return false;
         if (userFrom != null ? !userFrom.equals(chat.userFrom) : chat.userFrom != null) return false;
         if (userTo != null ? !userTo.equals(chat.userTo) : chat.userTo != null) return false;
         return !(chatMessages != null ? !chatMessages.equals(chat.chatMessages) : chat.chatMessages != null);
@@ -69,8 +66,7 @@ public class Chat {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (userFrom != null ? userFrom.hashCode() : 0);
+        int result = userFrom != null ? userFrom.hashCode() : 0;
         result = 31 * result + (userTo != null ? userTo.hashCode() : 0);
         result = 31 * result + (chatMessages != null ? chatMessages.hashCode() : 0);
         return result;

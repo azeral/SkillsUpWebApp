@@ -1,6 +1,8 @@
 package net.bondar.webapp.dao.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 /**
@@ -8,11 +10,8 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "MESSAGE")
-public class Message {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private long id;
+public class Message extends AbstractEntity{
+
     @Column(name = "DATE")
     private LocalDateTime date;
     @Column(name = "CONTEXT")
@@ -22,12 +21,12 @@ public class Message {
     @Column(name = "TO")
     private Contact to;
 
-    public long getId() {
-        return id;
+    public Message(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Message(long id){
+        super(id);
     }
 
     public LocalDateTime getDate() {
@@ -69,7 +68,6 @@ public class Message {
 
         Message message = (Message) o;
 
-        if (id != message.id) return false;
         if (date != null ? !date.equals(message.date) : message.date != null) return false;
         if (content != null ? !content.equals(message.content) : message.content != null) return false;
         if (from != null ? !from.equals(message.from) : message.from != null) return false;
@@ -79,8 +77,7 @@ public class Message {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (date != null ? date.hashCode() : 0);
+        int result = date != null ? date.hashCode() : 0;
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (from != null ? from.hashCode() : 0);
         result = 31 * result + (to != null ? to.hashCode() : 0);

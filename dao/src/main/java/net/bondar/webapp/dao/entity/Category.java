@@ -2,7 +2,6 @@ package net.bondar.webapp.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -10,22 +9,19 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CATEGORY")
-public class Category {
+public class Category extends AbstractEntity{
 
-    @Id
-    @Column(name = "ID")
-    private Long id;
     @Column(name = "TITLE")
     private String title;
     @Column(name = "DESCRIPTION")
     private String description;
 
-    public Long getId() {
-        return id;
+    public Category(){
+        super();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Category(long id){
+        super(id);
     }
 
     public String getTitle() {
@@ -51,7 +47,6 @@ public class Category {
 
         Category category = (Category) o;
 
-        if (id != null ? !id.equals(category.id) : category.id != null) return false;
         if (title != null ? !title.equals(category.title) : category.title != null) return false;
         return !(description != null ? !description.equals(category.description) : category.description != null);
 
@@ -59,8 +54,7 @@ public class Category {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
+        int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }

@@ -5,18 +5,18 @@ import java.time.LocalDateTime;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class PostDto {
-    private long id;
+public class PostDto extends ModelDto{
+
     private long contact_id;
     private String content;
     private LocalDateTime date;
 
-    public long getId() {
-        return id;
+    public PostDto(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public PostDto(long id){
+        super(id);
     }
 
     public long getContact_id() {
@@ -50,7 +50,6 @@ public class PostDto {
 
         PostDto postDto = (PostDto) o;
 
-        if (id != postDto.id) return false;
         if (contact_id != postDto.contact_id) return false;
         if (content != null ? !content.equals(postDto.content) : postDto.content != null) return false;
         return !(date != null ? !date.equals(postDto.date) : postDto.date != null);
@@ -59,8 +58,7 @@ public class PostDto {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (int) (contact_id ^ (contact_id >>> 32));
+        int result = (int) (contact_id ^ (contact_id >>> 32));
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
@@ -69,8 +67,7 @@ public class PostDto {
     @Override
     public String toString() {
         return "PostDto{" +
-                "id=" + id +
-                ", contact_id=" + contact_id +
+                "contact_id=" + contact_id +
                 ", content='" + content + '\'' +
                 ", date=" + date +
                 '}';

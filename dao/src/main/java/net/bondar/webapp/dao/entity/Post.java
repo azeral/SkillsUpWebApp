@@ -1,6 +1,8 @@
 package net.bondar.webapp.dao.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 /**
@@ -8,11 +10,8 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "POST")
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private long id;
+public class Post extends AbstractEntity{
+
     @Column(name = "CONTACT_ID")
     private long contact_id;
     @Column(name = "CONTEXT")
@@ -20,12 +19,12 @@ public class Post {
     @Column(name = "DATE")
     private LocalDateTime date;
 
-    public long getId() {
-        return id;
+    public Post(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Post(long id){
+        super(id);
     }
 
     public long getContact_id() {
@@ -59,7 +58,6 @@ public class Post {
 
         Post post = (Post) o;
 
-        if (id != post.id) return false;
         if (contact_id != post.contact_id) return false;
         if (content != null ? !content.equals(post.content) : post.content != null) return false;
         return !(date != null ? !date.equals(post.date) : post.date != null);
@@ -68,8 +66,7 @@ public class Post {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (int) (contact_id ^ (contact_id >>> 32));
+        int result = (int) (contact_id ^ (contact_id >>> 32));
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;

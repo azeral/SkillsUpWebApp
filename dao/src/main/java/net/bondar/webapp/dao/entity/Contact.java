@@ -1,9 +1,9 @@
 package net.bondar.webapp.dao.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 
@@ -12,12 +12,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "CONTACT")
-public class Contact {
+public class Contact extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private long id;
     @Column(name = "FIRST_NAME")
     private String firstName;
     @Column(name = "LAST_NAME")
@@ -29,14 +25,14 @@ public class Contact {
     private Set<Place> places;
     private Set<Contact> friendList;
     private Set<Chat> conversation;
-    private Map<Contact, List<Post>> post;
+    private Set<Post> posts;
 
-    public long getId() {
-        return id;
+    public Contact(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public  Contact(long id){
+        super(id);
     }
 
     public String getFirstName() {
@@ -95,12 +91,12 @@ public class Contact {
         this.conversation = conversation;
     }
 
-    public Map<Contact, List<Post>> getPost() {
-        return post;
+    public Set<Post> getPosts() {
+        return posts;
     }
 
-    public void setPost(Map<Contact, List<Post>> post) {
-        this.post = post;
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 
     @Override
@@ -110,19 +106,28 @@ public class Contact {
 
         Contact contact = (Contact) o;
 
-        if (id != contact.id) return false;
         if (firstName != null ? !firstName.equals(contact.firstName) : contact.firstName != null) return false;
         if (lastName != null ? !lastName.equals(contact.lastName) : contact.lastName != null) return false;
-        return !(birthDate != null ? !birthDate.equals(contact.birthDate) : contact.birthDate != null);
+        if (birthDate != null ? !birthDate.equals(contact.birthDate) : contact.birthDate != null) return false;
+        if (hobbies != null ? !hobbies.equals(contact.hobbies) : contact.hobbies != null) return false;
+        if (places != null ? !places.equals(contact.places) : contact.places != null) return false;
+        if (friendList != null ? !friendList.equals(contact.friendList) : contact.friendList != null) return false;
+        if (conversation != null ? !conversation.equals(contact.conversation) : contact.conversation != null)
+            return false;
+        return !(posts != null ? !posts.equals(contact.posts) : contact.posts != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        result = 31 * result + (hobbies != null ? hobbies.hashCode() : 0);
+        result = 31 * result + (places != null ? places.hashCode() : 0);
+        result = 31 * result + (friendList != null ? friendList.hashCode() : 0);
+        result = 31 * result + (conversation != null ? conversation.hashCode() : 0);
+        result = 31 * result + (posts != null ? posts.hashCode() : 0);
         return result;
     }
 }

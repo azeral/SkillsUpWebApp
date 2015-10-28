@@ -3,19 +3,19 @@ package net.bondar.webapp.api.model;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class PlaceDto {
-    private long id;
+public class PlaceDto extends ModelDto{
+
     private String title;
     private String description;
     private double latitude;
     private double longitude;
 
-    public long getId() {
-        return id;
+    public PlaceDto(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public PlaceDto(long id){
+        super(id);
     }
 
     public String getTitle() {
@@ -57,7 +57,6 @@ public class PlaceDto {
 
         PlaceDto placeDto = (PlaceDto) o;
 
-        if (id != placeDto.id) return false;
         if (Double.compare(placeDto.latitude, latitude) != 0) return false;
         if (Double.compare(placeDto.longitude, longitude) != 0) return false;
         if (title != null ? !title.equals(placeDto.title) : placeDto.title != null) return false;
@@ -69,8 +68,7 @@ public class PlaceDto {
     public int hashCode() {
         int result;
         long temp;
-        result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = title != null ? title.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         temp = Double.doubleToLongBits(latitude);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
@@ -82,8 +80,7 @@ public class PlaceDto {
     @Override
     public String toString() {
         return "PlaceDto{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +

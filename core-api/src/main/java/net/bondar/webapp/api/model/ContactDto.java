@@ -1,13 +1,13 @@
 package net.bondar.webapp.api.model;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Set;
 
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class ContactDto {
-    private long id;
+public class ContactDto extends ModelDto{
+
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
@@ -15,14 +15,14 @@ public class ContactDto {
     private Set<PlaceDto> places;
     private Set<ContactDto> friendList;
     private Set<ChatDto> conversation;
-    private Map<ContactDto, List<PostDto>> post;
+    private Set<PostDto> posts;
 
-    public long getId() {
-        return id;
+    public ContactDto(){
+       super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public ContactDto(long id){
+        super(id);
     }
 
     public String getFirstName() {
@@ -57,12 +57,12 @@ public class ContactDto {
         this.hobbies = hobbies;
     }
 
-    public Set<PlaceDto> getPlaceDtos() {
+    public Set<PlaceDto> getPlaces() {
         return places;
     }
 
-    public void setPlaceDtos(Set<PlaceDto> placeDtos) {
-        this.places = placeDtos;
+    public void setPlaces(Set<PlaceDto> places) {
+        this.places = places;
     }
 
     public Set<ContactDto> getFriendList() {
@@ -81,22 +81,22 @@ public class ContactDto {
         this.conversation = conversation;
     }
 
-    public Map<ContactDto, List<PostDto>> getPost() {
-        return post;
+    public Set<PostDto> getPosts() {
+        return posts;
     }
 
-    public void setPost(Map<ContactDto, List<PostDto>> post) {
-        this.post = post;
+    public void setPosts(Set<PostDto> posts) {
+        this.posts = posts;
     }
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         ContactDto that = (ContactDto) o;
 
-        if (id != that.id) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
@@ -104,36 +104,34 @@ public class ContactDto {
         if (places != null ? !places.equals(that.places) : that.places != null) return false;
         if (friendList != null ? !friendList.equals(that.friendList) : that.friendList != null) return false;
         if (conversation != null ? !conversation.equals(that.conversation) : that.conversation != null) return false;
-        return !(post != null ? !post.equals(that.post) : that.post != null);
+        return !(posts != null ? !posts.equals(that.posts) : that.posts != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + (hobbies != null ? hobbies.hashCode() : 0);
         result = 31 * result + (places != null ? places.hashCode() : 0);
         result = 31 * result + (friendList != null ? friendList.hashCode() : 0);
         result = 31 * result + (conversation != null ? conversation.hashCode() : 0);
-        result = 31 * result + (post != null ? post.hashCode() : 0);
+        result = 31 * result + (posts != null ? posts.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "ContactDto{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
                 ", hobbies=" + hobbies +
                 ", places=" + places +
                 ", friendList=" + friendList +
                 ", conversation=" + conversation +
-                ", post=" + post +
+                ", posts=" + posts +
                 '}';
     }
 }

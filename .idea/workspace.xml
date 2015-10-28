@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3be541a-d0a4-442e-8395-5d06f438319f" name="Default" comment="Added H2DB dependencies">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/AppHibernate.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Category.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core-impl/src/main/resources/schema.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core-impl/src/main/resources/test-data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/App.java" afterPath="$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-impl/core-impl.iml" afterPath="$PROJECT_DIR$/core-impl/core-impl.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-impl/pom.xml" afterPath="$PROJECT_DIR$/core-impl/pom.xml" />
+    <list default="true" id="c3be541a-d0a4-442e-8395-5d06f438319f" name="Default" comment="Added Entity to DTO converter">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/AbstractEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/converters/EntityDtoConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ModelDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Category.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Category.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Chat.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Chat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ContactDto.java" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ContactDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Hobby.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Hobby.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/HobbyDto.java" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/HobbyDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Message.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/MessageDto.java" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/MessageDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Place.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Place.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PlaceDto.java" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PlaceDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Post.java" afterPath="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Post.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PostDto.java" afterPath="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PostDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/core-api.iml" afterPath="$PROJECT_DIR$/core-api/core-api.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desctopUI/desctopUI.iml" afterPath="$PROJECT_DIR$/desctopUI/desctopUI.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core-api/pom.xml" afterPath="$PROJECT_DIR$/core-api/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\!JAVA\MyWebApp\core-impl\src\main\resources\applicationcontext.xml" afterPath="$PROJECT_DIR$/core-impl/src/main/resources/application-context.xml" />
     </list>
     <ignored path="MyWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,52 +62,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppHibernate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/AppHibernate.java">
+      <file leaf-file-name="Contact.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
+              <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="docComment;class#Contact#0" expanded="false" />
+                <element signature="e#233#240#0" expanded="false" />
+                <element signature="method#equals#0;class#Contact#0" expanded="false" />
+                <element signature="method#hashCode#0;class#Contact#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="EntityDtoConverter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/converters/EntityDtoConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48406675">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.36115327">
+              <caret line="117" column="45" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
+              <folding>
+                <element signature="docComment;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#0;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#1;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#2;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#3;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#4;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#5;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#6;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#7;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#8;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#9;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#10;class#EntityDtoConverter#0" expanded="false" />
+                <element signature="method#convert#11;class#EntityDtoConverter#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core-impl/src/main/resources/schema.sql">
+      <file leaf-file-name="ChatDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-context.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core-impl/src/main/resources/application-context.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-              <folding />
+              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+              <folding>
+                <element signature="e#812#813#0" expanded="true" />
+                <element signature="e#860#861#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,22 +145,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dao/src/java/net/bondar/webapp/ContactDao.java" />
-        <option value="$PROJECT_DIR$/dao/src/java/net/bondar/webapp/impl/ContactDaoImpl.java" />
-        <option value="$PROJECT_DIR$/dao/src/java/net/bondar/webapp/impl/ChatDaoImpl.java" />
-        <option value="$PROJECT_DIR$/core-impl/src/java/net/bondar/webapp/core/JavaContactServiceImpl.java" />
-        <option value="$PROJECT_DIR$/core-api/src/java/net/bondar/webapp/api/model/Contact.java" />
         <option value="$PROJECT_DIR$/core-impl/src/java/net/bondar/webapp/core/App.java" />
         <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Chat.java" />
         <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Contact.java" />
         <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Hobby.java" />
-        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/HobbyDto.java" />
         <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Message.java" />
-        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/MessageDto.java" />
         <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Place.java" />
-        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PlaceDto.java" />
         <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Post.java" />
-        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PostDto.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/ContactDao.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/HobbyDao.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/MessageDao.java" />
@@ -168,21 +172,30 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/pom.xml" />
         <option value="$PROJECT_DIR$/dao/pom.xml" />
-        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ContactDto.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java" />
-        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Chat.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Hobby.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Message.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Place.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Post.java" />
         <option value="$PROJECT_DIR$/core-impl/pom.xml" />
         <option value="$PROJECT_DIR$/core-impl/src/main/resources/application-context.xml" />
         <option value="$PROJECT_DIR$/core-impl/src/main/resources/test-data.sql" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/AppHibernate.java" />
         <option value="$PROJECT_DIR$/core-impl/src/main/resources/schema.sql" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/Model.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ModelDto.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/HobbyDto.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/MessageDto.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PlaceDto.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PostDto.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/AbstractEntity.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Category.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Chat.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Hobby.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Message.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Place.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Post.java" />
+        <option value="$PROJECT_DIR$/core-api/pom.xml" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ContactDto.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java" />
+        <option value="$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/converters/EntityDtoConverter.java" />
       </list>
     </option>
   </component>
@@ -621,6 +634,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="converters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -970,7 +1017,7 @@
       <workItem from="1445873642276" duration="167000" />
       <workItem from="1445876083878" duration="138000" />
       <workItem from="1446013958695" duration="4457000" />
-      <workItem from="1446018443389" duration="1874000" />
+      <workItem from="1446018443389" duration="6335000" />
     </task>
     <task id="LOCAL-00001" summary="Add maven project structure">
       <created>1441043736346</created>
@@ -1038,19 +1085,25 @@
       <option name="project" value="LOCAL" />
       <updated>1446018761615</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added H2DB dependencies">
+      <created>1446020323344</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1446020323344</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6636000" />
+    <option name="totallyTimeSpent" value="11097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32514736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32514736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1101,7 +1154,8 @@
     <MESSAGE value="Created DTO classes" />
     <MESSAGE value="Added entities for DB" />
     <MESSAGE value="Added H2DB dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added H2DB dependencies" />
+    <MESSAGE value="Added Entity to DTO converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Entity to DTO converter" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1115,38 +1169,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/desctopUI/desctopUI.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/core-api.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.01715439">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desctopUI/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1244,17 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/impl/ChatDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/impl/ContactDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1342,153 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ContactDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#ContactDto#0" expanded="false" />
-            <element signature="method#equals#0;class#ContactDto#0" expanded="false" />
-            <element signature="method#hashCode#0;class#ContactDto#0" expanded="false" />
-            <element signature="method#toString#0;class#ContactDto#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="11" selection-end-column="42" />
-          <folding>
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/HobbyDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="31" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Hobby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Hobby#0" expanded="false" />
-            <element signature="method#equals#0;class#Hobby#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Hobby#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/MessageDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="26" selection-start-line="8" selection-start-column="3" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="docComment;class#MessageDto#0" expanded="false" />
-            <element signature="e#918#919#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="method#equals#0;class#MessageDto#0" expanded="false" />
-            <element signature="method#hashCode#0;class#MessageDto#0" expanded="false" />
-            <element signature="method#toString#0;class#MessageDto#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#Message#0" expanded="false" />
-            <element signature="method#equals#0;class#Message#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Message#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PlaceDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="29" selection-start-line="6" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#PlaceDto#0" expanded="false" />
-            <element signature="method#hashCode#0;class#PlaceDto#0" expanded="false" />
-            <element signature="method#toString#0;class#PlaceDto#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Place.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Place#0" expanded="false" />
-            <element signature="method#equals#0;class#Place#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Place#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PostDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="31" selection-start-line="8" selection-start-column="4" selection-end-line="11" selection-end-column="31" />
-          <folding>
-            <element signature="docComment;class#PostDto#0" expanded="false" />
-            <element signature="method#equals#0;class#PostDto#0" expanded="false" />
-            <element signature="method#hashCode#0;class#PostDto#0" expanded="false" />
-            <element signature="method#toString#0;class#PostDto#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08585858">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Post#0" expanded="false" />
-            <element signature="method#equals#0;class#Post#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Post#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#Contact#0" expanded="false" />
-            <element signature="method#equals#0;class#Contact#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Contact#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08585858">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Chat#0" expanded="false" />
-            <element signature="method#equals#0;class#Chat#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Chat#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/impl/PostDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13737373">
@@ -1561,36 +1429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/AppHibernate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.789899">
-          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#494#495#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core-impl/src/main/resources/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1617,9 +1455,241 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48406675">
+        <state vertical-scroll-proportion="0.65656567">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ModelDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding>
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/impl/ChatDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13737373">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/HobbyDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.789899">
+          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+          <folding>
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/MessageDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.669697">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+          <folding>
+            <element signature="docComment;class#MessageDto#0" expanded="false" />
+            <element signature="method#equals#0;class#MessageDto#0" expanded="false" />
+            <element signature="method#hashCode#0;class#MessageDto#0" expanded="false" />
+            <element signature="method#toString#0;class#MessageDto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PlaceDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6353535">
+          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="docComment;class#PlaceDto#0" expanded="false" />
+            <element signature="method#equals#0;class#PlaceDto#0" expanded="false" />
+            <element signature="method#hashCode#0;class#PlaceDto#0" expanded="false" />
+            <element signature="method#toString#0;class#PlaceDto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-impl/src/main/java/net/bondar/webapp/core/AppHibernate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44646466">
+          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#Category#0" expanded="false" />
+            <element signature="e#182#189#0" expanded="false" />
+            <element signature="method#equals#0;class#Category#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Category#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/AbstractEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <element signature="docComment;class#AbstractEntity#0" expanded="false" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#Chat#0" expanded="false" />
+            <element signature="e#205#212#0" expanded="false" />
+            <element signature="method#equals#0;class#Chat#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Chat#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Hobby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#Hobby#0" expanded="false" />
+            <element signature="e#182#189#0" expanded="false" />
+            <element signature="method#equals#0;class#Hobby#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Hobby#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Message#0" expanded="false" />
+            <element signature="method#equals#0;class#Message#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Message#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Place.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#Place#0" expanded="false" />
+            <element signature="e#182#189#0" expanded="false" />
+            <element signature="method#equals#0;class#Place#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Place#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08585858">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Post#0" expanded="false" />
+            <element signature="method#equals#0;class#Post#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Post#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/PostDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+          <folding>
+            <element signature="docComment;class#PostDto#0" expanded="false" />
+            <element signature="method#equals#0;class#PostDto#0" expanded="false" />
+            <element signature="method#hashCode#0;class#PostDto#0" expanded="false" />
+            <element signature="method#toString#0;class#PostDto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ContactDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="11" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="22" />
+          <folding>
+            <element signature="docComment;class#ContactDto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/net/bondar/webapp/dao/entity/Contact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#Contact#0" expanded="false" />
+            <element signature="e#233#240#0" expanded="false" />
+            <element signature="method#equals#0;class#Contact#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Contact#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/model/ChatDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core-api/src/main/java/net/bondar/webapp/api/converters/EntityDtoConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36115327">
+          <caret line="117" column="45" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
+          <folding>
+            <element signature="docComment;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#0;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#1;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#2;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#3;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#4;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#5;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#6;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#7;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#8;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#9;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#10;class#EntityDtoConverter#0" expanded="false" />
+            <element signature="method#convert#11;class#EntityDtoConverter#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

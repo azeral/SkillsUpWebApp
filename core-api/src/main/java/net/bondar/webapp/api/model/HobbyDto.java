@@ -3,17 +3,17 @@ package net.bondar.webapp.api.model;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class HobbyDto {
-    private long id;
+public class HobbyDto extends ModelDto{
+
     private String title;
     private String description;
 
-    public long getId() {
-        return id;
+    public HobbyDto(){
+        super();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public HobbyDto(long id){
+        super(id);
     }
 
     public String getTitle() {
@@ -39,7 +39,6 @@ public class HobbyDto {
 
         HobbyDto hobbyDto = (HobbyDto) o;
 
-        if (id != hobbyDto.id) return false;
         if (title != null ? !title.equals(hobbyDto.title) : hobbyDto.title != null) return false;
         return !(description != null ? !description.equals(hobbyDto.description) : hobbyDto.description != null);
 
@@ -47,8 +46,7 @@ public class HobbyDto {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (title != null ? title.hashCode() : 0);
+        int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
@@ -56,8 +54,7 @@ public class HobbyDto {
     @Override
     public String toString() {
         return "HobbyDto{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

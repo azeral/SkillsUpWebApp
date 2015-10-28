@@ -14,5 +14,13 @@
     <version>1.0-SNAPSHOT</version>
     <name>${project.modulesName} core api</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.bondar</groupId>
+            <artifactId>dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     
 </project>
