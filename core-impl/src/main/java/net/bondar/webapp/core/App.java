@@ -6,7 +6,7 @@ package net.bondar.webapp.core;
 
 //public class App {
 //    public static void main(String[] args) throws Exception {
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+//        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 //        JavaContactService service = context.getBean(JavaContactService.class);
 //        //Create contacts
 //        service.createContact("Ivan", "First", LocalDate.of(1990, Month.APRIL, 12));
