@@ -1,30 +1,23 @@
 package net.bondar.webapp.impl;
 
 import net.bondar.webapp.MessageDao;
-import net.bondar.webapp.api.model.Contact;
-import net.bondar.webapp.api.model.Message;
+import net.bondar.webapp.api.model.ContactDto;
+import net.bondar.webapp.api.model.MessageDto;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Created by AzeraL on 07.10.2015.
  */
 public class MessageDaoImpl implements MessageDao {
-//    Map<Long, Message> messageMap = new HashMap<>();
 
-//    @Override
-//    public void storeMessage(Message message) {
-//        messageMap.put(message.getMessage_id(), message);
-//    }
-//
-//    @Override
-//    public List<Message> getConversation(Contact firstContact, Contact secondContact) {
-//        List<Message> messageList=new ArrayList<>();
-//        for(Map.Entry<Contact, List<Message>>mapEntry:firstContact.getConversation().entrySet()){
-//            if(mapEntry.getKey().equals(secondContact)){
-//                messageList=mapEntry.getValue();
-//            }
-//        }
-//        return messageList;
-//    }
+    @Override
+    public void storeMessage(MessageDto message) {
+
+    }
+
+    @Override
+    public List<MessageDto> getConversation(ContactDto firstContact, ContactDto secondContact) {
+        return null;
+    }
 }

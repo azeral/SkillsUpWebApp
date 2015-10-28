@@ -1,80 +1,53 @@
 package net.bondar.webapp.impl;
 
 import net.bondar.webapp.ContactDao;
-import net.bondar.webapp.api.model.Chat;
-import net.bondar.webapp.api.model.Contact;
-import net.bondar.webapp.api.model.Hobby;
-import net.bondar.webapp.api.model.Place;
+import net.bondar.webapp.api.model.ChatDto;
+import net.bondar.webapp.api.model.ContactDto;
+import net.bondar.webapp.api.model.HobbyDto;
+import net.bondar.webapp.api.model.PlaceDto;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by AzeraL on 07.10.2015.
  */
 @Repository
 public class ContactDaoImpl implements ContactDao {
-    Map<Long, Contact> contactMap = new HashMap<>();
 
     @Override
-    public void create(Contact contact) {
-        contactMap.put(contact.getContact_id(), contact);
+    public void deleteContact(ContactDto contact) {
+
     }
 
     @Override
-    public void deleteContact(Contact contact) {
-        contactMap.remove(contact.getContact_id());
+    public ContactDto getContactByName(String firstName, String lastName) {
+        return null;
     }
 
     @Override
-    public Contact getContactByName(String firstName, String lastName) {
-        Contact resultContact=null;
-        Collection<Contact> contacts = getAll();
-        for(Contact contact:contacts){
-            if(contact.getFirstName().equals(firstName)&& contact.getLastName().equals(lastName)){
-                resultContact=contact;
-            }
-        }
-        return resultContact;
+    public Set<ContactDto> getAllContactsWithHobby(HobbyDto hobbyDto) {
+        return null;
     }
 
     @Override
-    public Collection<Contact> getAll() {
-        return contactMap.values();
+    public Set<ContactDto> getAllContactsForPlace(PlaceDto placeDto) {
+        return null;
     }
 
     @Override
-    public Set<Contact> getAllContactsWithHobby(Hobby hobby) {
-        Set<Contact> resultSet = new HashSet<>();
-        Collection<Contact> contacts = getAll();
-        for(Contact contact:contacts){
-            if(contact.getHobbies().contains(hobby)){
-                resultSet.add(contact);
-            }
-        }
-        return resultSet;
+    public ChatDto getConversation(ContactDto who, ContactDto with) {
+        return null;
     }
 
     @Override
-    public Set<Contact> getAllContactsForPlace(Place place) {
-        Set<Contact> resultSet = new HashSet<>();
-        Collection<Contact> contacts = getAll();
-        for(Contact contact:contacts){
-            if(contact.getPlaces().contains(place)){
-                resultSet.add(contact);
-            }
-        }
-        return resultSet;
+    public void create(ContactDto contactDto) {
+
     }
 
     @Override
-    public Chat getConversation(Contact who, Contact with) {
-        Chat result=null;
-        for(Chat chat:who.getConversation()){
-            if(chat.getUserTo().equals(with)){
-                result=chat;
-            }
-        }
-        return result;
+    public Collection<ContactDto> getAll() {
+        return null;
     }
 }

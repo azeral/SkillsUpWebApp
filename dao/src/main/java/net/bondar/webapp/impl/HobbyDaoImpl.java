@@ -1,41 +1,30 @@
 package net.bondar.webapp.impl;
 
 import net.bondar.webapp.HobbyDao;
-import net.bondar.webapp.api.model.Contact;
-import net.bondar.webapp.api.model.Hobby;
+import net.bondar.webapp.api.model.ContactDto;
+import net.bondar.webapp.api.model.HobbyDto;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.Collection;
 
 /**
  * Created by AzeraL on 07.10.2015.
  */
 @Repository
 public class HobbyDaoImpl implements HobbyDao {
-    Map<Long, Hobby> hobbyMap=new HashMap<>();
-
 
     @Override
-    public void create(Hobby hobby) {
-        hobbyMap.put(hobby.getHobby_id(), hobby);
-    }
+    public void addHobbyToContact(ContactDto contact, HobbyDto hobbyDto) {
 
-
-    @Override
-    public void addHobbyToContact(Contact contact, Hobby hobby) {
-        Set<Hobby> hobbies = contact.getHobbies();
-        if(hobbies.size()==0){
-            Set<Hobby> newHobbySet = new HashSet<>();
-            newHobbySet.add(hobby);
-            contact.setHobbies(newHobbySet);
-        }else {
-            hobbies.add(hobby);
-            contact.setHobbies(hobbies);
-        }
     }
 
     @Override
-    public Collection<Hobby> getAll() {
-        return hobbyMap.values();
+    public void create(HobbyDto hobbyDto) {
+
+    }
+
+    @Override
+    public Collection<HobbyDto> getAll() {
+        return null;
     }
 }

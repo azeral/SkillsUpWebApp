@@ -3,25 +3,17 @@ package net.bondar.webapp.api.model;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class Hobby {
-    private static long ID=1;
-    private long hobby_id;
+public class HobbyDto {
+    private long id;
     private String title;
     private String description;
 
-    public Hobby(){}
-    public Hobby(String title, String description) {
-        this.hobby_id=ID++;
-        this.title = title;
-        this.description = description;
+    public long getId() {
+        return id;
     }
 
-    public long getHobby_id() {
-        return hobby_id;
-    }
-
-    public void setHobby_id(long hobby_id) {
-        this.hobby_id = hobby_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -45,17 +37,17 @@ public class Hobby {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Hobby hobby = (Hobby) o;
+        HobbyDto hobbyDto = (HobbyDto) o;
 
-        if (hobby_id != hobby.hobby_id) return false;
-        if (title != null ? !title.equals(hobby.title) : hobby.title != null) return false;
-        return !(description != null ? !description.equals(hobby.description) : hobby.description != null);
+        if (id != hobbyDto.id) return false;
+        if (title != null ? !title.equals(hobbyDto.title) : hobbyDto.title != null) return false;
+        return !(description != null ? !description.equals(hobbyDto.description) : hobbyDto.description != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (hobby_id ^ (hobby_id >>> 32));
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
@@ -63,8 +55,8 @@ public class Hobby {
 
     @Override
     public String toString() {
-        return "Hobby{" +
-                "hobby_id=" + hobby_id +
+        return "HobbyDto{" +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 '}';

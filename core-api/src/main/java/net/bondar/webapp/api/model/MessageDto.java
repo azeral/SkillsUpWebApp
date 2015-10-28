@@ -5,28 +5,19 @@ import java.time.LocalDateTime;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class Message {
-    private static long ID=1;
-    private long message_id;
+public class MessageDto {
+    private long id;
     private LocalDateTime date;
     private String content;
-    private Contact from;
-    private Contact to;
+    private ContactDto from;
+    private ContactDto to;
 
-    public Message(LocalDateTime date, String content, Contact from, Contact to) {
-        this.message_id=ID++;
-        this.date = date;
-        this.content = content;
-        this.from = from;
-        this.to = to;
+    public long getId() {
+        return id;
     }
 
-    public long getMessage_id() {
-        return message_id;
-    }
-
-    public void setMessage_id(long message_id) {
-        this.message_id = message_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalDateTime getDate() {
@@ -45,19 +36,19 @@ public class Message {
         this.content = content;
     }
 
-    public Contact getFrom() {
+    public ContactDto getFrom() {
         return from;
     }
 
-    public void setFrom(Contact from) {
+    public void setFrom(ContactDto from) {
         this.from = from;
     }
 
-    public Contact getTo() {
+    public ContactDto getTo() {
         return to;
     }
 
-    public void setTo(Contact to) {
+    public void setTo(ContactDto to) {
         this.to = to;
     }
 
@@ -66,19 +57,19 @@ public class Message {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Message message = (Message) o;
+        MessageDto messageDto = (MessageDto) o;
 
-        if (message_id != message.message_id) return false;
-        if (date != null ? !date.equals(message.date) : message.date != null) return false;
-        if (content != null ? !content.equals(message.content) : message.content != null) return false;
-        if (from != null ? !from.equals(message.from) : message.from != null) return false;
-        return !(to != null ? !to.equals(message.to) : message.to != null);
+        if (id != messageDto.id) return false;
+        if (date != null ? !date.equals(messageDto.date) : messageDto.date != null) return false;
+        if (content != null ? !content.equals(messageDto.content) : messageDto.content != null) return false;
+        if (from != null ? !from.equals(messageDto.from) : messageDto.from != null) return false;
+        return !(to != null ? !to.equals(messageDto.to) : messageDto.to != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (message_id ^ (message_id >>> 32));
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (from != null ? from.hashCode() : 0);
@@ -88,8 +79,8 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "message_id=" + message_id +
+        return "MessageDto{" +
+                "id=" + id +
                 ", date=" + date +
                 ", content='" + content + '\'' +
                 ", from=" + from +

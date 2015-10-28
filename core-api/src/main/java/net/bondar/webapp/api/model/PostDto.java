@@ -5,27 +5,18 @@ import java.time.LocalDateTime;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class Post {
-    private static long ID=1;
-    private long post_id;
+public class PostDto {
+    private long id;
     private long contact_id;
     private String content;
     private LocalDateTime date;
 
-    public Post(){}
-    public Post(long contact_id, String content, LocalDateTime date) {
-        this.post_id=ID++;
-        this.contact_id = contact_id;
-        this.content = content;
-        this.date = date;
+    public long getId() {
+        return id;
     }
 
-    public long getPost_id() {
-        return post_id;
-    }
-
-    public void setPost_id(long post_id) {
-        this.post_id = post_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getContact_id() {
@@ -57,18 +48,18 @@ public class Post {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Post post = (Post) o;
+        PostDto postDto = (PostDto) o;
 
-        if (post_id != post.post_id) return false;
-        if (contact_id != post.contact_id) return false;
-        if (content != null ? !content.equals(post.content) : post.content != null) return false;
-        return !(date != null ? !date.equals(post.date) : post.date != null);
+        if (id != postDto.id) return false;
+        if (contact_id != postDto.contact_id) return false;
+        if (content != null ? !content.equals(postDto.content) : postDto.content != null) return false;
+        return !(date != null ? !date.equals(postDto.date) : postDto.date != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (post_id ^ (post_id >>> 32));
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (int) (contact_id ^ (contact_id >>> 32));
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
@@ -77,8 +68,8 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post{" +
-                "post_id=" + post_id +
+        return "PostDto{" +
+                "id=" + id +
                 ", contact_id=" + contact_id +
                 ", content='" + content + '\'' +
                 ", date=" + date +

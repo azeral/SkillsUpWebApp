@@ -3,29 +3,19 @@ package net.bondar.webapp.api.model;
 /**
  * Created by AzeraL on 16.09.2015.
  */
-public class Place {
-    private static long ID=1;
-    private long place_id;
+public class PlaceDto {
+    private long id;
     private String title;
     private String description;
     private double latitude;
     private double longitude;
 
-    public Place(){}
-    public Place(String title, String description, double latitude, double longitude) {
-        this.place_id=ID++;
-        this.title = title;
-        this.description = description;
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public long getId() {
+        return id;
     }
 
-    public long getPlace_id() {
-        return place_id;
-    }
-
-    public void setPlace_id(long place_id) {
-        this.place_id = place_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -65,13 +55,13 @@ public class Place {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Place place = (Place) o;
+        PlaceDto placeDto = (PlaceDto) o;
 
-        if (place_id != place.place_id) return false;
-        if (Double.compare(place.latitude, latitude) != 0) return false;
-        if (Double.compare(place.longitude, longitude) != 0) return false;
-        if (title != null ? !title.equals(place.title) : place.title != null) return false;
-        return !(description != null ? !description.equals(place.description) : place.description != null);
+        if (id != placeDto.id) return false;
+        if (Double.compare(placeDto.latitude, latitude) != 0) return false;
+        if (Double.compare(placeDto.longitude, longitude) != 0) return false;
+        if (title != null ? !title.equals(placeDto.title) : placeDto.title != null) return false;
+        return !(description != null ? !description.equals(placeDto.description) : placeDto.description != null);
 
     }
 
@@ -79,7 +69,7 @@ public class Place {
     public int hashCode() {
         int result;
         long temp;
-        result = (int) (place_id ^ (place_id >>> 32));
+        result = (int) (id ^ (id >>> 32));
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         temp = Double.doubleToLongBits(latitude);
@@ -91,8 +81,8 @@ public class Place {
 
     @Override
     public String toString() {
-        return "Place{" +
-                "place_id=" + place_id +
+        return "PlaceDto{" +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", latitude=" + latitude +
