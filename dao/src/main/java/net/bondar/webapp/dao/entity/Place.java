@@ -2,7 +2,9 @@ package net.bondar.webapp.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 /**
  * Created by Azeral on 28.10.2015.
@@ -13,12 +15,18 @@ public class Place extends AbstractEntity{
 
     @Column(name = "TITLE")
     private String title;
+
     @Column(name = "DESCRIPTION")
     private String description;
+
     @Column(name = "LATITUDE")
     private double latitude;
+
     @Column(name = "LONGITUDE")
     private double longitude;
+
+    @ManyToMany(mappedBy = "places")
+    private Set<Contact> contacts;
 
     public Place(){
         super();
@@ -58,6 +66,14 @@ public class Place extends AbstractEntity{
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     @Override

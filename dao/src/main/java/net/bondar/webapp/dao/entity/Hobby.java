@@ -2,7 +2,9 @@ package net.bondar.webapp.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 /**
  * Created by Azeral on 28.10.2015.
@@ -13,8 +15,13 @@ public class Hobby extends AbstractEntity{
 
     @Column(name = "TITLE")
     private String title;
+
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @ManyToMany(mappedBy = "hobbies")
+    private Set<Contact> contacts;
+
 
     public Hobby(){
         super();
@@ -38,6 +45,14 @@ public class Hobby extends AbstractEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     @Override

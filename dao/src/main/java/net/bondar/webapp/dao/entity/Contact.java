@@ -1,8 +1,6 @@
 package net.bondar.webapp.dao.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -16,15 +14,39 @@ public class Contact extends AbstractEntity{
 
     @Column(name = "FIRST_NAME")
     private String firstName;
+
     @Column(name = "LAST_NAME")
     private String lastName;
+
     @Column(name = "BIRTH_DATE")
     private LocalDate birthDate;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "CONTACT_HOBBY",
+            joinColumns = @JoinColumn(name = "CONTACT_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "HOBBY_ID", referencedColumnName = "ID")
+    )
     private Set<Hobby> hobbies;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "CONTACT_PLACE",
+            joinColumns = @JoinColumn(name = "CONTACT_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "PLACE_ID", referencedColumnName = "ID")
+    )
     private Set<Place> places;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FRIEND_ID", referencedColumnName = "ID")
     private Set<Contact> friendList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CHAT_ID", referencedColumnName = "ID")
     private Set<Chat> conversation;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "POST_ID", referencedColumnName = "ID")
     private Set<Post> posts;
 
     public Contact(){
